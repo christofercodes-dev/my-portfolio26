@@ -1,0 +1,205 @@
+.contactSection {
+    padding: 80px 1.5rem; 
+    background-color: transparent; 
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .contactSection {
+        padding: 100px 2rem;
+    }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .header {
+        margin-bottom: 60px;
+    }
+}
+
+.title {
+    font-size: clamp(2rem, 5vw, 2.5rem); 
+    font-weight: 800;
+}
+
+.highlight {
+    color: #15d8d2; 
+}
+
+.subtitle {
+    color: #d9d9d9;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .content {
+        grid-template-columns: 0.8fr 1.2fr; 
+        gap: 4rem;
+    }
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.infoCard {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: rgba(30, 41, 59, 0.4);
+    padding: 1.25rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: #15d8d2;
+    flex-shrink: 0; 
+}
+
+.infoCard h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+}
+
+.infoCard p {
+    margin: 0;
+    color: #dddedf;
+    font-size: 0.9rem;
+    word-break: break-all; 
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1rem;
+    justify-content: center; 
+}
+
+@media (min-width: 768px) {
+    .socialLinks {
+        justify-content: flex-start; 
+    }
+}
+
+.socialIcon {
+    width: 48px;
+    height: 48px;
+    background: rgba(30, 41, 59, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+}
+
+.socialIcon:hover {
+    background: #15d8d2;
+    color: #000;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Formulärstilar */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.inputGroup input, 
+.inputGroup textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Fix för iOS-zoom vid fokus på input */
+@media (max-width: 768px) {
+    .inputGroup input, 
+    .inputGroup textarea {
+        font-size: 16px; 
+    }
+}
+
+.inputGroup input:focus, 
+.inputGroup textarea:focus {
+    outline: none;
+    border-color: #15d8d2;
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #15d8d2;
+    color: #000; 
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+    background: #15d8d2;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #475569;
+}
+
+.statusMessage {
+    margin-top: 1rem;
+    text-align: center;
+    color: #15d8d2;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

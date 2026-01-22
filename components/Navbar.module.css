@@ -1,0 +1,160 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 0 2rem;
+}
+
+.scrolled {
+  height: 70px;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1001;
+}
+
+.logoDot {
+  width: 10px;
+  height: 10px;
+  background: #15d8d2;
+  border-radius: 50%;
+}
+
+.highlight {
+  color: #15d8d2;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navLinks a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navLinks a:hover {
+  color: white;
+}
+
+.contactBtn {
+  background: rgba(21, 216, 210, 0.1);
+  color: #15d8d2;
+  border: 1px solid #15d8d2;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.contactBtn:hover {
+  background: #15d8d2;
+  color: #000;
+}
+
+/* Hamburgare */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .active .bar:nth-child(2) { opacity: 0; }
+  .active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .navLinks {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #0a0a0a;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.4s ease-in-out;
+  }
+
+  .navLinks.navActive {
+    left: 0;
+  }
+
+  .navLinks a {
+    font-size: 1.5rem;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: block;
+  }
+  .contactBtn {
+    background: rgba(21, 216, 210, 0.1);
+    color: #15d8d2;
+    border: 1px solid #15d8d2;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobileOnly {
+    display: none;
+  }
+  
+  .desktopOnly {
+    display: block;
+  }
+}
