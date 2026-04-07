@@ -1,69 +1,81 @@
 "use client";
-import React from 'react';
-import styles from './Projects.module.css';
-import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import React from "react";
+import Image from "next/image";
+import styles from "./Projects.module.css";
 
-const projects = [
-    {
-        title: "Neurawave.se",
-        description: "Hemsida åt ett startup företag",
-        tags: ["React Native", "TypeScript", "css"],
-       /*  link: "#",
-        github: "#" */
-    },
-    {
-        title: "bythus.nu",
-        description: "Mäklarhemsida med API-intregration",
-        tags: ["React Native", "Sanity"],
-        
-    },
+const myProjects = [
+  {
+    id: "01",
+    title: "bythus.nu",
+    code: "System.deploy(RealEstate)",
+    tech: ["Next.js", "Sanity", "CSS Modules"],
+    desc: "En modern, innehållsdriven plattform för fastighetsförmedling. Fokus på hög prestanda och ett skräddarsytt CMS för sömlös hantering av objekt.",
+    imgSrc: "/images/i1.png",
+    accent: "#a29bfe", // Lila
+    link: "https://bythus.nu"
+  },
+  {
+    id: "02",
+    title: "neurawave.se",
+    code: "UI.init(StartupIdentity)",
+    tech: ["React", "Framer Motion", "CSS"],
+    desc: "Digital identitet och landningssida för ett tech-startup. Framtagen med fokus på innovativt UI, mjuka interaktioner och en framtidsorienterad upplevelse.",
+    imgSrc: "/images/i2.png",
+    accent: "#00d2ff", // Cyan
+    link: "https://neurawave.se"
+  }
 ];
 
 export default function Projects() {
-    return (
-        <section id="projects" className={styles.projectsSection}>
-            <div className={styles.container}>
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className={styles.header}
-                >
-                    <h2 className={styles.title}>Utvalda <span className={styles.highlight}>Projekt</span></h2>
-                    <p className={styles.subtitle}>En samling av mina senaste arbeten inom webb- och apputveckling.</p>
-                </motion.div>
+  return (
+    <section className={styles.section} id="projects">
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.badge}>PORTFOLIO</div>
+          <h2 className={styles.title}>Mina <span className={styles.gradient}>Arbeten</span></h2>
+        </div>
 
-                <div className={styles.grid}>
-                    {projects.map((project, index) => (
-                        <motion.div 
-                            key={index}
-                            className={styles.card}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                            <div className={styles.cardImage}>
-                                <div className={styles.placeholder}>
-                                    <span>{project.title}</span>
-                                </div>
-                            </div>
-                            <div className={styles.cardContent}>
-                                <div className={styles.tags}>
-                                    {project.tags.map(tag => <span key={tag} className={styles.tag}>{tag}</span>)}
-                                </div>
-                                <h3 className={styles.projectTitle}>{project.title}</h3>
-                                <p className={styles.projectDesc}>{project.description}</p>
-                                <div className={styles.footer}>
-                         {/*            <a href={project.github} className={styles.iconLink}><FiGithub /></a>
-                                    <a href={project.link} className={styles.iconLink}><FiExternalLink /></a> */}
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+        <div className={styles.grid}>
+          {myProjects.map((project) => (
+            <div key={project.id} className={styles.card}>
+              {/* Individuell glöd-effekt */}
+              <div 
+                className={styles.cardGlow} 
+                style={{ background: `radial-gradient(circle at 50% 0%, ${project.accent}15 0%, transparent 70%)` }} 
+              />
+              
+              <div className={styles.imageWrapper}>
+                <Image 
+                  src={project.imgSrc} 
+                  alt={project.title}
+                  fill
+                  className={styles.projectImg}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className={styles.imageOverlay} />
+              </div>
+
+              <div className={styles.cardContent}>
+                <div className={styles.meta}>
+                  <code className={styles.code} style={{ color: project.accent }}>{project.code}</code>
+                  <span className={styles.id}>[{project.id}]</span>
                 </div>
+
+                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <p className={styles.desc}>{project.desc}</p>
+
+                <div className={styles.techTags}>
+                  {project.tech.map(t => <span key={t}>{t}</span>)}
+                </div>
+
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.launchBtn}>
+                  Live Preview ↗
+                </a>
+              </div>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

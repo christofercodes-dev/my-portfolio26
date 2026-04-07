@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="sv">
       <body>
-        <Background />
+        {/* <Background /> */}
 
         <div style={{ position: 'relative', zIndex: 1 }}>
           <Navbar />

@@ -1,205 +1,247 @@
-.contactSection {
-    padding: 80px 1.5rem; 
-    background-color: transparent; 
-    color: white;
-}
-
-@media (min-width: 768px) {
-    .contactSection {
-        padding: 100px 2rem;
-    }
-}
-
-.container {
-    max-width: 1000px;
+.section {
+    padding: 100px 0;
+    background-color: #020204;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container {
+    max-width: 1300px;
     margin: 0 auto;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-@media (min-width: 768px) {
-    .header {
-        margin-bottom: 60px;
-    }
-}
-
-.title {
-    font-size: clamp(2rem, 5vw, 2.5rem); 
-    font-weight: 800;
-}
-
-.highlight {
-    color: #15d8d2; 
-}
-
-.subtitle {
-    color: #d9d9d9;
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.content {
+    padding: 0 10vw;
+  }
+  
+  .header {
+    margin-bottom: 60px;
+  }
+  
+  .badge {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #a29bfe;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+  }
+  
+  .title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+  }
+  
+  .gradient {
+    background: linear-gradient(135deg, #a29bfe 0%, #00d2ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .subtitle {
+    color: #64748b;
+    max-width: 500px;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+  .wrapper {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-}
-
-@media (min-width: 768px) {
-    .content {
-        grid-template-columns: 0.8fr 1.2fr; 
-        gap: 4rem;
-    }
-}
-
-.contactInfo {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: start;
+  }
+  
+  /* INFO SIDE */
+  .infoSide {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-}
-
-.infoCard {
+    gap: 40px;
+  }
+  
+  .statusCard {
+    background: rgba(108, 92, 231, 0.05);
+    border: 1px solid rgba(108, 92, 231, 0.2);
+    padding: 12px 20px;
+    border-radius: 100px;
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    background: rgba(30, 41, 59, 0.4);
-    padding: 1.25rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-}
-
-.icon {
+    gap: 12px;
+    width: fit-content;
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #a29bfe;
+  }
+  
+  .statusDot {
+    width: 8px;
+    height: 8px;
+    background: #a29bfe;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #a29bfe;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+  }
+  
+  .contactMethod {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .icon {
     font-size: 1.5rem;
-    color: #15d8d2;
-    flex-shrink: 0; 
-}
-
-.infoCard h4 {
-    margin: 0;
-    font-size: 1rem;
-    color: white;
-}
-
-.infoCard p {
-    margin: 0;
-    color: #dddedf;
-    font-size: 0.9rem;
-    word-break: break-all; 
-}
-
-.socialLinks {
-    display: flex;
-    gap: 1rem;
-    justify-content: center; 
-}
-
-@media (min-width: 768px) {
-    .socialLinks {
-        justify-content: flex-start; 
-    }
-}
-
-.socialIcon {
-    width: 48px;
-    height: 48px;
-    background: rgba(30, 41, 59, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    color: white;
-    font-size: 1.25rem;
-    transition: all 0.3s ease;
+    color: #00d2ff;
+  }
+  
+  .label {
+    display: block;
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* FORM STYLING */
+  .form {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 32px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    text-decoration: none;
-}
-
-.socialIcon:hover {
-    background: #15d8d2;
-    color: #000;
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
-}
-
-/* Formulärstilar */
-.form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-}
-
-.inputGroup input, 
-.inputGroup textarea {
+    gap: 25px;
+    position: relative;
+  }
+  
+  .inputField {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputIcon {
+    position: absolute;
+    left: 20px;
+    color: #444;
+    transition: color 0.3s ease;
+  }
+  
+  .form input, .form textarea {
     width: 100%;
-    padding: 1rem 1.25rem;
-    background: rgba(30, 41, 59, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: white;
-    font-family: inherit;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 18px 20px 18px 55px;
+    border-radius: 16px;
+    color: #fff;
     font-size: 1rem;
     transition: all 0.3s ease;
-}
-
-/* Fix för iOS-zoom vid fokus på input */
-@media (max-width: 768px) {
-    .inputGroup input, 
-    .inputGroup textarea {
-        font-size: 16px; 
-    }
-}
-
-.inputGroup input:focus, 
-.inputGroup textarea:focus {
+  }
+  
+  .form input:focus, .form textarea:focus {
     outline: none;
-    border-color: #15d8d2;
-    background: rgba(30, 41, 59, 0.6);
-    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
-}
-
-.submitBtn {
+    border-color: #a29bfe;
+    background: rgba(108, 92, 231, 0.03);
+  }
+  
+  .form input:focus + .inputIcon, 
+  .form textarea:focus + .inputIcon {
+    color: #a29bfe;
+  }
+  
+  .submitBtn {
+    /* Använd en solid färg som bas för att transition ska fungera */
+    background-color: #a29bfe; 
+    /* Lägg gradienten som en image */
+    background-image: linear-gradient(135deg, #a29bfe 0%, #00d2ff 100%);
+    background-size: 100% 100%;
+    
+    color: #fff;
+    border: none;
+    padding: 20px;
+    border-radius: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    background: #15d8d2;
-    color: #000; 
-    border: none;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1rem;
+    gap: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
+    /* Lägg till 'background' i din transition */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s ease, 
+                background-color 0.4s ease;
+  }
+  
+  .submitBtn:hover {
+    /* Istället för att byta gradient, ändra bakgrundsfärgen eller "tänd" knappen */
+    background-image: none; /* Detta gör att background-color tar över mjukt */
+    background-color: #6c5ce7; 
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(108, 92, 231, 0.3);
+  }
+  
+  .sendIcon {
+    transition: transform 0.3s ease;
+  }
+  
+  .submitBtn:hover .sendIcon {
+    transform: translate(5px, -5px);
+  }
 
-.submitBtn:hover:not(:disabled) {
-    background: #15d8d2;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
-}
 
-.submitBtn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    background: #475569;
-}
-
-.statusMessage {
-    margin-top: 1rem;
-    text-align: center;
-    color: #15d8d2;
-    font-weight: 500;
-    animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-top: 2px solid #000;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .statusMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
+  
+  .success {
+    background: linear-gradient(135deg, #a29bfe 0%, #00d2ff 100%);
+    color: #7b8d85;
+    border: 1px solid rgba(0, 255, 150, 0.2);
+  }
+  
+  .error {
+    background: rgba(255, 77, 77, 0.05);
+    color: #ff4d4d;
+    border: 1px solid rgba(255, 77, 77, 0.2);
+  }
+  
+  /* Fix för knappen när den laddar */
+  .submitBtn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+  }
+  
+  @media (max-width: 1000px) {
+    .wrapper { grid-template-columns: 1fr; gap: 50px; }
+    .form { padding: 30px; }
+  }
